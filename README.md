@@ -1,2 +1,2 @@
 # cloud-computing-finale
-Alexis Kaldany
+Alexis, Nate, Suhas 
