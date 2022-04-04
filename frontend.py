@@ -29,7 +29,12 @@ app = dash.Dash(__name__)
 application = app.server
 
 ### Layout
-app.layout = html.Div(children=[dash_table.DataTable(id='example_prediction',data=example_prediction.to_dict('records'),columns=[{"name": i, "id": i} for i in example_prediction.columns])                           
+app.layout = html.Div(children=[html.H1(id='Header',children=['Black Mamba'],style={'textAlign': 'center'}),
+                                
+                                dash_table.DataTable(id='example_prediction',data=example_prediction.to_dict('records'),columns=[{"name": i, "id": i} for i in example_prediction.columns],style_cell={'textAlign': 'left'}, page_size=10,style_data={
+        'whiteSpace': 'normal',
+        'height': 'auto',
+    },)                           
                                 ])
 #You will need to put this line at the bottom of your code to run #the application. 
 if __name__ == '__main__': 
