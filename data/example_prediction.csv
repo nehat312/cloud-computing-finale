@@ -1,9 +1,10 @@
-﻿Statistics,Winner,Loser
-Name,Wizards,Lakers
-Scored,1,1
-Allowed,1,1
-Road-Home W-L,1,1
-Last 10 Record,1,1
-Turnovers,1,1
-Fast Break Points,1,1
-Points in the Paint,1,1
+﻿Statistics,Game 1, Game 2, Game 3, Game 4,
+Game, 1st,1st,2nd,2nd
+Name,Wizards and Lakers,Blazers and Sonics, Nuggets and Bulls, Knicks and Nets
+Scored,1,1,2,2
+Allowed,1,1,2,2
+Road-Home W-L,1,1,2,2
+Last 10 Record,1,1,2,2
+Turnovers,1,1,2,2
+Fast Break Points,1,1,2,2
+Points in the Paint,1,1,2,2
