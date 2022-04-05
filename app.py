@@ -15,14 +15,15 @@ application = app.server
 #  external_stylesheets=[
 #     dbc.themes.CYBORG,
 # ],
-# Layout
-app.layout = html.Div(style= {'background-image':
-                                                                           'url("/assets/background.png")',
-                                                                           'background-repeat': 'no-repeat',
-                                                                           'background-position': 'right top',
-                                                                           'background-size': '1920px 1080px'},children=[
-    html.H1(
-        id='Header', children=['Difference Between Home and Away'], style={'textAlign': 'center'}),
+# # Layout
+# style= {'background-image':
+#                                                                            'url("/assets/background.png")',
+#                                                                            'background-repeat': 'no-repeat',
+#                                                                            'background-position': 'center',
+#                                                                            'background-size': 'auto'}
+app.layout = html.Div(children=[
+html.H1(
+        id='Header', children=['Difference Between Home and Away'], style={'textAlign': 'center',}),
     dash_table.DataTable
     (id='Predictions DataTable',
      data=df.to_dict('records'),
@@ -33,7 +34,7 @@ app.layout = html.Div(style= {'background-image':
      page_size=33,
      style_header={
          'backgroundColor': 'rgb(30, 30, 30)',
-         'color': 'white'
+         'color': 'white',
      },
      fixed_columns={'headers': True, 'data': 1},
      sort_action='native',
@@ -47,9 +48,10 @@ app.layout = html.Div(style= {'background-image':
      style_table={'minWidth': '100%'},
      merge_duplicate_headers=True,
      )
+    #,html.Img(id='image',src="/assets/background.png")
 ])
 
 # You will need to put this line at the bottom of your code to run #the application.
 
 if __name__ == '__main__':
-    application.run(debug=True)
+    application.run(host='0.0.0.0', port=8050)
