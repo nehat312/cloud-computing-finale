@@ -12,21 +12,37 @@ Games on April 7th
 - `ssh -i "/Users/alexiskaldany/school/cloud-dash.pem" ubuntu@54.208.41.106`
 
 - `sudo apt-get update`
-
-`sudo add-apt-repository universe`
-
 - `sudo apt install python3-pip`
-- ` sudo apt install ruby`
+- `sudo apt install ruby`
 - `sudo pip install virtualenv`
+- `git clone https://github.com/alexiskaldany/cloud-computing-finale.git`
+- `cd cloud-computing-finale`
+- `sudo apt install python3.8-venv`
+- `python3 -m venv venv`
+- `source venv/bin/activate`
+- `pip install -r requirements.txt`
+
+### To run app
+- `python3 app.py`
+
+link will be the IP of the EC2 with :8050
+- `http://54.208.41.106:8050`
+
+
+
+
+
+
 - `pip install wget`
 - `wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install`
 - 'chmod +x ./install`
 - `sudo ./install auto`
 - `sudo service codedeploy-agent start `
 
-
-
-- `mkdir cloud-computing-finale`
+### IAM user
+CodeDeploy, pw = CloudComputingFinale123
+AKIAWMVE4TS77DJTQEGG
+R5WUqJgW1aQ+ljk3MTvfNiEsRCWBcIpkL0dKq1AS
 
 `
 ### In local terminal
