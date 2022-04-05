@@ -40,10 +40,6 @@ link will be the IP of the EC2 with :8050
 - `sudo service codedeploy-agent start `
 
 ### IAM user
-CodeDeploy, pw = CloudComputingFinale123
-AKIAWMVE4TS77DJTQEGG
-R5WUqJgW1aQ+ljk3MTvfNiEsRCWBcIpkL0dKq1AS
-
 `
 ### In local terminal
 Copy github creds
