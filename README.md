@@ -12,7 +12,8 @@ Games on April 7th
 - ```
    ssh -i "/Users/alexiskaldany/school/cloud-dash.pem" ubuntu@54.208.41.106
    cd cloud-computing-finale
-   python3 app.py
+   source venv/bin/activate
+   python3 Cloud_dash.py
    ```
 
 - `sudo apt-get update`
