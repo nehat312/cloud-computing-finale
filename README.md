@@ -9,9 +9,9 @@ Games on April 7th
 
 - port = 8050
 - `chmod 600 /Users/alexiskaldany/school/cloud-dash.pem`
-- `ssh -i "/Users/alexiskaldany/school/cloud-dash.pem" ubuntu@54.208.41.106
+- ```ssh -i "/Users/alexiskaldany/school/cloud-dash.pem" ubuntu@54.208.41.106
    cd cloud-computing-finale
-   python3 app.py`
+   python3 app.py```
 
 - `sudo apt-get update`
 - `sudo apt install python3-pip`
