@@ -132,3 +132,4 @@ dmypy.json
 cloud-dash.pem
 .DS_Store
 .DS_Store
+config.py
