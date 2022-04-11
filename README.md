@@ -51,7 +51,8 @@ COPY repo.py $DAGSTER_HOME
 - `chmod 600 /Users/alexiskaldany/school/cloud-dash.pem`
 -
 - ```
-   ssh -i "/Users/alexiskaldany/school/cloud-dash.pem" ubuntu@54.208.41.106
+   ssh -i "/Users/alexiskaldany/school/cloud-dash.pem" ubuntu@54.210.0.102
+   ssh -i "/Users/alexiskaldany/school/cloud-dash.pem" ubuntu@34.226.124.7
    cd cloud-computing-finale
    source venv/bin/activate
    python3 Cloud_dash.py
