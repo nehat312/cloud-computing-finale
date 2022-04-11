@@ -133,3 +133,7 @@ cloud-dash.pem
 .DS_Store
 .DS_Store
 config.py
+.idea/inspectionProfiles/Project_Default.xml
+.DS_Store
+.idea/vcs.xml
+.DS_Store
