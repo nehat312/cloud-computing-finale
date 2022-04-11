@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.model_selection import train_test_split
 #%%
-df = pd.read_csv('/Users/suhasburavalla/Desktop/Dataset.csv' )
+df = pd.read_csv('/Users/alexiskaldany/school/cloud-computing-finale/Suhas /Dataset.csv' )
 
 #%%
 cols = ['gmDate', 'gmTime', 'seasTyp', 'teamAbbr','teamPTS', 'teamAST', 'teamTO', 'teamSTL', 'teamBLK', 'teamPF', 'teamFG%', 'team3P%', 'teamFT%', 'teamTRB','teamRslt', 'teamOrtg', 'teamDrtg',  'opptAbbr', 'opptPTS', 'opptAST', 'opptTO', 'opptSTL', 'opptBLK', 'opptPF', 'opptFG%', 'oppt3P%', 'opptFT%', 'opptTRB', 'opptOrtg', 'opptDrtg']
@@ -20,6 +20,7 @@ df1 = df1.rename(columns={"teamFG%": "teamFG", "team3P%": "team3P", "teamFT%" : 
 #%%
 X = df1[['teamAST', 'teamTO', 'opptAST', 'opptTO', 'teamDrtg', 'teamOrtg', 'opptDrtg', 'opptOrtg', 'teamFG', 'opptFG', 'teamTRB', 'opptTRB']]
 y = df1['opptPTS']
+
 # %%
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
@@ -60,3 +61,4 @@ def calculate_OpptPTS(ASTteam, TOteam, ASToppt, TOoppt, Drtgteam, Ortgteam, Drtg
 
 
 
+#%%

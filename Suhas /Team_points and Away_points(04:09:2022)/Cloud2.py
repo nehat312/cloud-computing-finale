@@ -67,5 +67,5 @@ def calculate_TeamPTS(ASTteam, TOteam, ASToppt, TOoppt, Drtgteam, Ortgteam, Drtg
 #%%
 
 
-#result_df = calculate_teamPTS(tst.teamAST, tst.teamTO, tst.opptAST, tst.opptTO, tst.teamDrtg, tst.teamOrtg, tst.opptDrtg, tst.opptOrtg)
+result_df = calculate_teamPTS(tst.teamAST, tst.teamTO, tst.opptAST, tst.opptTO, tst.teamDrtg, tst.teamOrtg, tst.opptDrtg, tst.opptOrtg)
 # %%

@@ -4,6 +4,12 @@ Alexis, Nate, Suhas
 
 Games on April 7th
 
+## Using Dagster
+
+Gameplan
+
+- Create example job
+- Work through tutorial
 
 ## For setting up and connecting to front end EC2 
 

@@ -23,7 +23,7 @@ def scrape_data(url: str):
     return df
 
 @op
-def df_from_s3(s3_bucket,region,key_name,):
+def df_from_s3(s3_bucket,region,key_name):
     """saves object to s3 bucket
 
     Args:
@@ -45,7 +45,7 @@ def df_from_s3(s3_bucket,region,key_name,):
 
 
 @op
-def df_to_s3(df,s3_bucket,region,key_name,):
+def df_to_s3(df,s3_bucket,region,key_name):
         """saves object to s3 bucket
 
         Args:
@@ -65,5 +65,8 @@ def df_to_s3(df,s3_bucket,region,key_name,):
             return 
         except:
             get_dagster_logger().info(f"Dataframe: {df} failed to save to s3 {s3_bucket} at path {key_name}")
-            
-            
+ 
+@op           
+def df_pre_processing(df):
+    cols = ['gmDate', 'gmTime', 'seasTyp', 'teamAbbr','teamPTS', 'teamAST', 'teamTO', 'teamSTL', 'teamBLK', 'teamPF', 'teamFG%', 'team3P%', 'teamFT%', 'teamTRB','teamRslt', 'teamOrtg', 'teamDrtg',  'opptAbbr', 'opptPTS', 'opptAST', 'opptTO', 'opptSTL', 'opptBLK', 'opptPF', 'opptFG%', 'oppt3P%', 'opptFT%', 'opptTRB', 'opptOrtg', 'opptDrtg']
+    df_filtered = df[cols].copy()
