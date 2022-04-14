@@ -36,14 +36,16 @@ print(matchup_df)
 
 #%%
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-tr_app = dash.Dash('TEAM RANKINGS APP', external_stylesheets=external_stylesheets)
-tr_chart = html.Div([html.H1('NBA DATA - 2022 YTD', style={'textAlign': 'Center'}),
+matchup_app = dash.Dash('MATCHUP APP', external_stylesheets=external_stylesheets)
+application = matchup_app.server
+
+matchup_app.layout = html.Div([html.H1('NBA [2021-2022]', style={'textAlign': 'Center'}),
                      html.Br(),
-                     html.P('TBU'),
-                     dcc.Graph(id='tr-chart'),
+                     html.P('METRIC COMPARISON'),
+                     dcc.Graph(id='matchup-chart'),
                      html.Br(),
                      html.P('STAT A'),
-                     dcc.Dropdown(id='stat-a',
+                     dcc.Dropdown(id='stata',
                                   options=[{'label': 'effective-field-goal-pct', 'value': 'effective-field-goal-pct'},
                                            {'label': 'true-shooting-percentage', 'value': 'true-shooting-percentage'},
                                            {'label': 'offensive-efficiency', 'value': 'offensive-efficiency'},
@@ -54,7 +56,7 @@ tr_chart = html.Div([html.H1('NBA DATA - 2022 YTD', style={'textAlign': 'Center'
                                            {'label': 'assist--per--turnover-ratio', 'value': 'assist--per--turnover-ratio'}], value='defensive-efficiency'),
                      html.Br(),
                      html.P('STAT B'),
-                     dcc.Dropdown(id='stat-b',
+                     dcc.Dropdown(id='statb',
                                   options=[{'label': 'effective-field-goal-pct', 'value': 'effective-field-goal-pct'},
                                            {'label': 'true-shooting-percentage', 'value': 'true-shooting-percentage'},
                                            {'label': 'offensive-efficiency', 'value': 'offensive-efficiency'},
@@ -63,21 +65,22 @@ tr_chart = html.Div([html.H1('NBA DATA - 2022 YTD', style={'textAlign': 'Center'
                                            {'label': 'three-pointers-made-per-game', 'value': 'three-pointers-made-per-game'},
                                            {'label': 'three-pointers-attempted-per-game', 'value': 'three-pointers-attempted-per-game'},
                                            {'label': 'assist--per--turnover-ratio', 'value': 'assist--per--turnover-ratio'}], value='defensive-efficiency'),
-                     html.Br(),
-                     ])
+                               html.Br(),
+                               html.Div(id='layout')])
 
-@tr_app.callback(Output(component_id='tr-chart', component_property='figure'),
-                  #Output(component_id='func2', component_property='children')],
-                 [Input(component_id='stat-a', component_property='value'),
-                  Input(component_id='stat-b', component_property='value')])
+@matchup_app.callback(Output(component_id='layout', component_property='children'),
+                      Output(component_id='matchup-chart', component_property='figure'),
+                      [Input(component_id='stata', component_property='value'),
+                       Input(component_id='statb', component_property='value')])
 
 def display_chart(stata, statb):
     fig = px.scatter(matchup_df, x=[stata], y=[statb])
     return fig
 
-tr_app.run_server(
+matchup_app.run_server(
     port = 8030,
     host = '0.0.0.0',
+    #debug=True
 )
 
 
