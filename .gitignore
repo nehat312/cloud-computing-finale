@@ -137,3 +137,6 @@ config.py
 .DS_Store
 .idea/vcs.xml
 .DS_Store
+.idea/other.xml
+.DS_Store
+.DS_Store
