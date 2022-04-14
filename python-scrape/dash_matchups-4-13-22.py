@@ -1,8 +1,8 @@
 #%%
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
+#import matplotlib.pyplot as plt
+#import seaborn as sns
 import dash as dash
 from dash import dcc
 from dash import html
@@ -15,23 +15,21 @@ import plotly.express as px
 print("\nIMPORT SUCCESS")
 
 #%%
-tr_filepath = 'drive/My Drive/GWU/TEAM-7/data/tr_data_hub_4-13-22'
-
-tr_data_hub = pd.read_excel(tr_filepath + '.xlsx', index_col='Team')
+#tr_filepath = 'drive/My Drive/GWU/TEAM-7/data/tr_data_hub_4-13-22'
+#tr_data_hub = pd.read_excel(tr_filepath + '.xlsx', index_col='Team')
 #tr_data_hub = pd.read_csv(tr_filepath + '.csv', index_col='Team')
 #tr_data_hub.info()
 
 
-cbs_filepath = 'drive/My Drive/GWU/TEAM-7/data/cbs-matchups-4-13-22'
-
-cbs_df = pd.read_excel(cbs_filepath + '.xlsx', index_col='Unnamed: 0')
+#cbs_filepath = 'drive/My Drive/GWU/TEAM-7/data/cbs-matchups-4-13-22'
+#cbs_df = pd.read_excel(cbs_filepath + '.xlsx', index_col='Unnamed: 0')
 #cbs_df = pd.read_csv(cbs_filepath + '.csv', index_col='Unnamed: 0')
 #cbs_df.drop(columns=['Unnamed: 0'], inplace=True)
-print(cbs_df)
+#print(cbs_df)
 
 #%%
-matchup_filepath = '/Users/nehat312/GitHub/cloud-computing-finale/data/dash_matchups-4-13-22.xlsx'
-matchup_df = pd.read_excel(cbs_filepath + '.xlsx', index_col='Unnamed: 0')
+matchup_filepath = '/Users/nehat312/GitHub/cloud-computing-finale/data/dash_matchups-4-13-22'
+matchup_df = pd.read_excel(matchup_filepath + '.xlsx', index_col='TEAM_CODE')
 #cbs_df = pd.read_csv(cbs_filepath + '.csv', index_col='Unnamed: 0')
 #cbs_df.drop(columns=['Unnamed: 0'], inplace=True)
 print(matchup_df)
@@ -74,7 +72,7 @@ tr_chart = html.Div([html.H1('NBA DATA - 2022 YTD', style={'textAlign': 'Center'
                   Input(component_id='stat-b', component_property='value')])
 
 def display_chart(stata, statb):
-    fig = px.scatter(tr_data_hub, x=[stata], y=[statb])
+    fig = px.scatter(matchup_df, x=[stata], y=[statb])
     return fig
 
 tr_app.run_server(
