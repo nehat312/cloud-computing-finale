@@ -108,6 +108,41 @@ matchup_app.layout = html.Div([html.H1('NBA MATCHUP MACHINE', style={'textAlign'
                                                     ),
                                ]),
                                html.Br(),
+                               #html.P('METRIC COMPARISON'),
+                               dcc.Graph(id='matchup-chart'),
+                               html.Br(),
+                               html.P('STAT A'),
+                               dcc.Dropdown(id='stata',
+                                            options=[{'label': 'WIN%', 'value': 'WIN%'},
+                                                     {'label': 'AVG_MARGIN', 'value': 'AVG_MARGIN'},
+                                                     {'label': 'OFF_EFF', 'value': 'OFF_EFF'},
+                                                     {'label': 'DEF_EFF', 'value': 'DEF_EFF'},
+                                                     {'label': 'EFG%', 'value': 'EFG%'},
+                                                     {'label': 'TS%', 'value': 'TS%'},
+                                                     {'label': 'OPP_EFG%', 'value': 'OPP_EFG%'},
+                                                     {'label': 'OPP_TS%', 'value': 'OPP_TS%'},
+                                                     {'label': 'AST/TO', 'value': 'AST/TO'},
+                                                     {'label': 'OPP_AST/TO', 'value': 'OPP_AST/TO'},
+                                                     {'label': 'TREB%', 'value': 'TREB%'},
+                                                     {'label': 'STL+BLK/GM', 'value': 'STL+BLK/GM'},
+                                                     {'label': 'OPP_STL+BLK/GM', 'value': 'OPP_STL+BLK/GM'},], value='WIN%'),
+                               html.Br(),
+                               html.P('STAT B'),
+                               dcc.Dropdown(id='statb',
+                                            options=[{'label': 'WIN%', 'value': 'WIN%'},
+                                                     {'label': 'AVG_MARGIN', 'value': 'AVG_MARGIN'},
+                                                     {'label': 'OFF_EFF', 'value': 'OFF_EFF'},
+                                                     {'label': 'DEF_EFF', 'value': 'DEF_EFF'},
+                                                     {'label': 'EFG%', 'value': 'EFG%'},
+                                                     {'label': 'TS%', 'value': 'TS%'},
+                                                     {'label': 'OPP_EFG%', 'value': 'OPP_EFG%'},
+                                                     {'label': 'OPP_TS%', 'value': 'OPP_TS%'},
+                                                     {'label': 'AST/TO', 'value': 'AST/TO'},
+                                                     {'label': 'OPP_AST/TO', 'value': 'OPP_AST/TO'},
+                                                     {'label': 'TREB%', 'value': 'TREB%'},
+                                                     {'label': 'STL+BLK/GM', 'value': 'STL+BLK/GM'},
+                                                     {'label': 'OPP_STL+BLK/GM', 'value': 'OPP_STL+BLK/GM'},], value='WIN%'),
+                               html.Br(),
 
                                html.Div(id='layout')])
 
@@ -118,7 +153,7 @@ matchup_app.layout = html.Div([html.H1('NBA MATCHUP MACHINE', style={'textAlign'
                        Input(component_id='statb', component_property='value')])
 
 def display_chart(stata, statb):
-    fig = px.scatter(x=matchup_df[stata], y=matchup_df[statb])
+    fig = px.scatter(matchup_df, x=[stata], y=[statb])
     return fig
 
 if __name__ == '__main__':
